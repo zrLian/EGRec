@@ -11,10 +11,7 @@ from transformers import AutoModel, AutoTokenizer, AutoModelForCausalLM
 import torch
 model_name = 'Qwen/Qwen1.5-0.5B'
 max_padding_len = 512
-rerank_item_from_hist = 4
-rerank_hist_len = 10
-rerank_list_len = 10
-ctr_hist_len = 10
+ctr_hist_len = 5
 bert =False
 
 
