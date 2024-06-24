@@ -11,7 +11,6 @@ from layers import AttentionPoolingLayer, MLP, CrossNet, ConvertNet, CIN, MultiH
 from layers import Phi_function
 from torch.nn import BCEWithLogitsLoss, CrossEntropyLoss,BCELoss
 from transformers import AutoModel, AutoTokenizer, AutoModelForCausalLM,AutoModelForCausalLM,AutoModelForPreTraining,BertModel,BertTokenizer
-from alps.pytorch.modelhub.hub_layer import TorchHubLayer
 import os
 
 
