@@ -186,39 +186,10 @@ def generate_ctr_data(sequence_data, lm_hist_idx, uid_set,datamap,is_train=False
             input_ids = torch.tensor(input_ids, dtype=torch.int)
             return full_data,prompts,input_ids,input_ids.ne(auto_tokenizer.pad_token_id)
 
-def 
-
-def 
 
 
-def 
 
 
-def generate_item_prompt(item2attribute, datamap, dataset_name):
-    itemid2title = datamap['itemid2title']
-    attrid2name = datamap['id2attribute']
-    id2item = datamap['id2item']
-    item_prompts = {}
-    for iid, title in itemid2title.items():
-        item = id2item[iid]
-        if dataset_name == 'amz':
-            brand, cate = item2attribute[str(iid)]
-            brand_name = attrid2name[str(brand)]
-            # cate_name = attrid2name[cate]
-            item_prompts[item] = 'Introduce book {}, which is from brand {} and describe its attributes including but' \
-                                ' not limited to genre, author, writing style, theme, setting, length and complexity, ' \
-                                'time period, literary quality, critical acclaim.'.format(title, brand_name)
-            # item_prompts[iid] = 'Introduce product {}, which is from brand {} and describe its attributes (including but' \
-            #                     ' not limited to genre, functionality, quality, price, design, reputation).'.format(title, brand_name)
-        elif dataset_name == 'ml-1m':
-            item_prompts[item] = 'Introduce movie {} and describe its attributes (including but not limited to genre, ' \
-                                'director/cast, country, character, plot/theme, mood/tone, critical ' \
-                                'acclaim/award, production quality, and soundtrack).'.format(title)
-        else:
-            raise NotImplementedError
-    print('data num', len(item_prompts))
-    print(list(item_prompts.items())[0])
-    return item_prompts
 
 
 if __name__ == '__main__':
@@ -247,12 +218,7 @@ if __name__ == '__main__':
     print('final loading data')
     print(list(item2attribute.keys())[:10])
 
-    # print('generating ctr train dataset')
-    # train_ctr,train_prompts,train_input_ids,train_attention_masks,train_rlmRec_user_emb,train_rlmRec_item_emb = generate_ctr_data(sequence_data, train_test_split['lm_hist_idx'],
-    #                               train_test_split['train'],datamap,True)
-    # print('generating ctr test dataset')
-    # test_ctr,test_prompts,test_input_ids,test_attention_masks,test_rlmRec_user_emb,test_rlmRec_item_emb= generate_ctr_data(sequence_data, train_test_split['lm_hist_idx'],
-    #                              train_test_split['test'],datamap,False)
+
     print('generating ctr train dataset')
     train_ctr,train_prompts,train_input_ids,train_attention_masks= generate_ctr_data(sequence_data, train_test_split['lm_hist_idx'],
                                   train_test_split['train'],datamap,True)
