@@ -24,7 +24,7 @@ tiktoken
 2. Preprocessing: in folder `preprocess`
    1. run `python preprocess_amz.py`.
    2. run `generate_data.py` to generate data .
-   3. You can download the prompt we generated from the link and put it in `data/amz/raw_data/`. Of course, you can also generate your own prompts based on the paper.
+   3. You can download the prompt we generated from the link `https://onedrive.live.com/?authkey=%21ANkvgxZZzIlXSBc&id=ACF9A75DEBDDC53F%21106&cid=ACF9A75DEBDDC53F` and put it in `data/amz/raw_data/`. Of course, you can also generate your own prompts based on the paper.
    
 
 3. model: in folder `model`
